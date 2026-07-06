@@ -1,297 +1,217 @@
 {
   "app/__init__.py": {
-    "mtime": 1783361419.6077476,
+    "mtime": 1783093204.9250524,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "app/api/__init__.py": {
-    "mtime": 1783361419.6098902,
+    "mtime": 1783093204.9250524,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "app/api/routes_intake.py": {
-    "mtime": 1783361419.609906,
+    "mtime": 1783093189.2010515,
     "ast_hash": "08d3de2f24bbb9fcf3ed668f2512c800",
     "semantic_hash": ""
   },
   "app/core/__init__.py": {
-    "mtime": 1783361419.609906,
+    "mtime": 1783093204.9250524,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "app/core/config.py": {
-    "mtime": 1783361419.610237,
+    "mtime": 1783093119.1730473,
     "ast_hash": "8a0bc58744158f8d583f040e6fdd0971",
     "semantic_hash": ""
   },
   "app/core/errors.py": {
-    "mtime": 1783361419.610237,
+    "mtime": 1783093126.1650476,
     "ast_hash": "b8076d2cf62dd04415a154e4f7283139",
     "semantic_hash": ""
   },
   "app/llm/__init__.py": {
-    "mtime": 1783361419.610237,
+    "mtime": 1783093204.9250524,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "app/llm/client.py": {
-    "mtime": 1783361419.6107674,
+    "mtime": 1783093153.4530494,
     "ast_hash": "69b3fd2244e56ebac9cfd163f1e590f4",
     "semantic_hash": ""
   },
   "app/llm/prompts.py": {
-    "mtime": 1783361419.6107674,
+    "mtime": 1783093141.4370487,
     "ast_hash": "81afc384231f0c16e06946d63a6af9e3",
     "semantic_hash": ""
   },
   "app/main.py": {
-    "mtime": 1783361706.0497942,
-    "ast_hash": "b7634d59bf2946251520e04ea5eacfaa",
+    "mtime": 1783093197.2250519,
+    "ast_hash": "0af6300dda962f93e79596ada8882194",
     "semantic_hash": ""
   },
   "app/pipeline/__init__.py": {
-    "mtime": 1783361419.6107674,
+    "mtime": 1783093204.9250524,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "app/pipeline/steps.py": {
-    "mtime": 1783361706.0499756,
-    "ast_hash": "b964864619952b687edd829de9d9d548",
+    "mtime": 1783093180.649051,
+    "ast_hash": "b45ef270d47f8bf54b479d1bf8e64a75",
     "semantic_hash": ""
   },
   "app/schemas/__init__.py": {
-    "mtime": 1783361419.611497,
+    "mtime": 1783093204.9250524,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "app/schemas/intake.py": {
-    "mtime": 1783361419.6119554,
+    "mtime": 1783093111.273047,
     "ast_hash": "9cf2eeddeaa6bdee7f05aec3ecdbfb30",
     "semantic_hash": ""
   },
   "app/services/__init__.py": {
-    "mtime": 1783361419.6119554,
+    "mtime": 1783093204.9250524,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "app/services/extraction_service.py": {
-    "mtime": 1783361419.6122167,
+    "mtime": 1783093169.1530504,
     "ast_hash": "32421389022c93c207f03a5576c15e59",
     "semantic_hash": ""
   },
   "pyproject.toml": {
-    "mtime": 1783361419.6156938,
+    "mtime": 1783093275.907954,
     "ast_hash": "9596c977fa0628a1ce43a6a5221aca4f",
     "semantic_hash": ""
   },
   "test_request.py": {
-    "mtime": 1783361419.6194212,
+    "mtime": 1783093242.832407,
     "ast_hash": "81ad95a64cd96314a740b110fccbf469",
     "semantic_hash": ""
   },
   "tests/__init__.py": {
-    "mtime": 1783361419.6194212,
+    "mtime": 1783093204.9250524,
     "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
     "semantic_hash": ""
   },
   "tests/test_extraction.py": {
-    "mtime": 1783361419.6198707,
+    "mtime": 1783093234.5250542,
     "ast_hash": "dc7cfdac74218e0504f9db718ace00cb",
     "semantic_hash": ""
   },
   "tests/test_schema.py": {
-    "mtime": 1783361419.6198707,
+    "mtime": 1783093216.8690531,
     "ast_hash": "9d6035d19f98cadf8225902c2729dbdf",
     "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1783361833.0934749,
-    "ast_hash": "160544617459dddbebd4adcf2e3bc3f1",
+    "mtime": 1783096741.1646426,
+    "ast_hash": "34b8a1b3c25f3d3a8f130428ff7480c4",
     "semantic_hash": ""
   },
   "data/sample_transcripts/sore_throat.txt": {
-    "mtime": 1783361419.612349,
+    "mtime": 1783093204.9276729,
     "ast_hash": "3e42020ca3c1ba0625ded7a628b62291",
     "semantic_hash": ""
   },
   "docs_handoff/architecture/data_pipeline.md": {
-    "mtime": 1783361419.6131434,
+    "mtime": 1783093292.927369,
     "ast_hash": "c608488d3335abb03f78fed1e7b6303d",
     "semantic_hash": ""
   },
   "docs_handoff/architecture/fhir_moat.md": {
-    "mtime": 1783361419.6135447,
+    "mtime": 1783093292.9290576,
     "ast_hash": "dbbf11020617ab13ceabcf89753f7a9c",
     "semantic_hash": ""
   },
   "docs_handoff/architecture/safety_guardrails.md": {
-    "mtime": 1783361419.6135447,
+    "mtime": 1783093292.932811,
     "ast_hash": "01b9905bbdae3881caa234c92a163838",
     "semantic_hash": ""
   },
   "docs_handoff/architecture/system_architecture.md": {
-    "mtime": 1783361419.6135447,
+    "mtime": 1783093292.9250576,
     "ast_hash": "5ab483428d097d864ca30fbff1c676bb",
     "semantic_hash": ""
   },
   "docs_handoff/docs/product_vision.md": {
-    "mtime": 1783361419.6135447,
+    "mtime": 1783093292.9210577,
     "ast_hash": "a737505ffcb7e6710202a3fddc1022b5",
     "semantic_hash": ""
   },
   "docs_handoff/docs/version_roadmap.md": {
-    "mtime": 1783361419.6139128,
+    "mtime": 1783093292.9247062,
     "ast_hash": "f98d0e07ed2a598968970a93ea0d027a",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_01_ai_patient_interview.md": {
-    "mtime": 1783361419.6139128,
+    "mtime": 1783093292.9329307,
     "ast_hash": "8b10b9ac42b9d3126c427044353d0878",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_02_clinical_summary.md": {
-    "mtime": 1783361419.6140845,
-    "ast_hash": "0e0fa7bd46607349aac6163ec0842e1b",
+    "mtime": 1783093292.9337947,
+    "ast_hash": "0e4a7f9c2f3df2069018e44287fc62fc",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_03_healthcare_data_pipeline.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.9339924,
     "ast_hash": "48519818f4db55f2557ff6f1d4790484",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_04_fhir_clinical_structuring.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.9340425,
     "ast_hash": "bd5fc27f83de887047637c2ce0de3ac2",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_05_aws_healthlake_integration.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.9341059,
     "ast_hash": "5c477f08bb8f5c986eeeafa3a23f98d0",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_06_doctor_dashboard.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.9341455,
     "ast_hash": "d94e44933811f3cea09fe63c08a3cb81",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_07_delta_engine.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.9342132,
     "ast_hash": "8a36f2e2d1ce77a07377080ce8858ef4",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_08_clinical_flagging_engine.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.9342532,
     "ast_hash": "5916032b8fd8ce95a0966e4f580dcd05",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_09_ai_decision_support.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.934291,
     "ast_hash": "3931ffa49735f245864255b16e31e824",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_10_doctor_controlled_followups.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.934416,
     "ast_hash": "dd3e2cfb9223d542bbf811a9e10b9890",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_11_longitudinal_monitoring.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.9344542,
     "ast_hash": "09134576b9be31c14776c155d56f6038",
     "semantic_hash": ""
   },
   "docs_handoff/sprints/sprint_12_population_dashboard.md": {
-    "mtime": 1783361419.6140845,
+    "mtime": 1783093292.934493,
     "ast_hash": "075ec3a959613bac6a844168c6ef9827",
     "semantic_hash": ""
   },
   "requirements.txt": {
-    "mtime": 1783361419.6156938,
+    "mtime": 1783096722.0682833,
     "ast_hash": "144103937391eda70dc67ca0dc1a8f10",
     "semantic_hash": ""
   },
   "demo/streamlit_demo.py": {
-    "mtime": 1783361419.612349,
+    "mtime": 1783096703.7322822,
     "ast_hash": "f1a81c4fe02a9227a5703fbd15e7cbd9",
-    "semantic_hash": ""
-  },
-  "app/api/routes/__init__.py": {
-    "mtime": 1783361560.181016,
-    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
-    "semantic_hash": ""
-  },
-  "app/api/routes/clinical_summary.py": {
-    "mtime": 1783361696.937024,
-    "ast_hash": "df254accb10045d76f2040d23f19e83b",
-    "semantic_hash": ""
-  },
-  "app/schemas/clinical_summary.py": {
-    "mtime": 1783361585.7330174,
-    "ast_hash": "278fa32562cd98c6a785b0b37bb794b1",
-    "semantic_hash": ""
-  },
-  "app/services/clinical_summary_engine.py": {
-    "mtime": 1783361671.7930226,
-    "ast_hash": "ca8b31f5413d76bbee9aa8d3eea76916",
-    "semantic_hash": ""
-  },
-  "app/services/summary_field_access.py": {
-    "mtime": 1783361601.6090186,
-    "ast_hash": "1bccd4003e4f854af358d46f16281729",
-    "semantic_hash": ""
-  },
-  "app/services/summary_rendering.py": {
-    "mtime": 1783361683.9450233,
-    "ast_hash": "a61097e06ea9d19a8a87994fb34a1a3a",
-    "semantic_hash": ""
-  },
-  "app/services/summary_validation.py": {
-    "mtime": 1783361633.7530203,
-    "ast_hash": "8ce368f79c0d12f74734f4904d3714fd",
-    "semantic_hash": ""
-  },
-  "tests/api/__init__.py": {
-    "mtime": 1783361560.181016,
-    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
-    "semantic_hash": ""
-  },
-  "tests/api/test_clinical_summary_api.py": {
-    "mtime": 1783361808.9730308,
-    "ast_hash": "3bad32e7f9fec0cfe359a0996e608575",
-    "semantic_hash": ""
-  },
-  "tests/fixtures/__init__.py": {
-    "mtime": 1783361560.181016,
-    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
-    "semantic_hash": ""
-  },
-  "tests/fixtures/patient_intake_extractions.py": {
-    "mtime": 1783361738.4530265,
-    "ast_hash": "22322d19bd615e31fbad4cdc2f016e6a",
-    "semantic_hash": ""
-  },
-  "tests/schemas/__init__.py": {
-    "mtime": 1783361560.181016,
-    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
-    "semantic_hash": ""
-  },
-  "tests/schemas/test_clinical_summary_schema.py": {
-    "mtime": 1783361755.1690276,
-    "ast_hash": "0f0e383188f2ccd0d7d2cf3071416aa0",
-    "semantic_hash": ""
-  },
-  "tests/services/__init__.py": {
-    "mtime": 1783361560.181016,
-    "ast_hash": "d41d8cd98f00b204e9800998ecf8427e",
-    "semantic_hash": ""
-  },
-  "tests/services/test_clinical_summary_engine.py": {
-    "mtime": 1783361775.2690287,
-    "ast_hash": "f49c670c382b2137aadfd66671d46f3d",
-    "semantic_hash": ""
-  },
-  "tests/services/test_summary_safety.py": {
-    "mtime": 1783361796.6370301,
-    "ast_hash": "5799a95756f7f00fa5af4e30ecea930b",
     "semantic_hash": ""
   }
 }

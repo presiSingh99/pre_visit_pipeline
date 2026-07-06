@@ -1,13 +1,18 @@
-# Graph Report - pre_visit_pipeline  (2026-07-03)
+# Graph Report - repo_main  (2026-07-06)
 
 ## Corpus Check
-- 41 files · ~5,225 words
+- 57 files · ~11,438 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 166 nodes · 213 edges · 34 communities (18 shown, 16 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 2 edges (avg confidence: 0.8)
+- 347 nodes · 700 edges · 40 communities (25 shown, 15 thin omitted)
+- Extraction: 95% EXTRACTED · 5% INFERRED · 0% AMBIGUOUS · INFERRED: 38 edges (avg confidence: 0.52)
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `c171136f`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - [[_COMMUNITY_test_extraction.py|test_extraction.py]]
@@ -36,26 +41,27 @@
 - [[_COMMUNITY_sprint_12_population_dashboard|sprint_12_population_dashboard.md]]
 - [[_COMMUNITY_test_request.py|test_request.py]]
 - [[_COMMUNITY_streamlit_demo.py|streamlit_demo.py]]
+- [[_COMMUNITY_test_summary_safety.py|test_summary_safety.py]]
 
 ## God Nodes (most connected - your core abstractions)
-1. `extract_intake()` - 15 edges
-2. `PatientIntakeExtraction` - 13 edges
-3. `LLMUnavailableError` - 9 edges
-4. `ExtractionValidationError` - 9 edges
-5. `call_extraction_model()` - 9 edges
-6. `Pre-Visit Patient Intake — Sprint 1: Clinical Extraction Service` - 9 edges
-7. `get_settings()` - 7 edges
-8. `IntakeExtractionResult` - 7 edges
-9. `ExtractIntakeRequest` - 7 edges
-10. `IntakeError` - 6 edges
+1. `PatientIntakeExtraction` - 46 edges
+2. `ClinicalSummaryEngine` - 24 edges
+3. `SummarySection` - 22 edges
+4. `rich_valid()` - 22 edges
+5. `SummaryAtom` - 19 edges
+6. `ClinicalSummaryDraft` - 17 edges
+7. `validate_summary_output()` - 17 edges
+8. `ClinicalSummaryResponse` - 15 edges
+9. `extract_intake()` - 15 edges
+10. `Clock` - 14 edges
 
 ## Surprising Connections (you probably didn't know these)
-- `test_api_maps_llm_failure_to_502()` --calls--> `LLMUnavailableError`  [EXTRACTED]
-  tests/test_extraction.py → app/core/errors.py
-- `test_evidence_without_flag_fails_closed()` --indirect_call--> `ExtractionValidationError`  [INFERRED]
-  tests/test_extraction.py → app/core/errors.py
-- `test_red_flag_inconsistency_fails_closed()` --indirect_call--> `ExtractionValidationError`  [INFERRED]
-  tests/test_extraction.py → app/core/errors.py
+- `FrozenClock` --uses--> `SummarySectionId`  [INFERRED]
+  tests/services/test_clinical_summary_engine.py → app/schemas/clinical_summary.py
+- `test_section_rejects_empty_atoms_without_omitted_reason()` --calls--> `SummarySection`  [EXTRACTED]
+  tests/schemas/test_clinical_summary_schema.py → app/schemas/clinical_summary.py
+- `FrozenClock` --uses--> `ClinicalSummaryStatus`  [INFERRED]
+  tests/services/test_clinical_summary_engine.py → app/schemas/clinical_summary.py
 - `test_full_extraction_round_trips()` --calls--> `PatientIntakeExtraction`  [EXTRACTED]
   tests/test_schema.py → app/schemas/intake.py
 - `test_invalid_severity_rejected()` --calls--> `PatientIntakeExtraction`  [EXTRACTED]
@@ -64,35 +70,35 @@
 ## Import Cycles
 - None detected.
 
-## Communities (34 total, 16 thin omitted)
+## Communities (40 total, 15 thin omitted)
 
 ### Community 0 - "test_extraction.py"
-Cohesion: 0.17
-Nodes (13): ExtractionValidationError, The LLM output could not be validated against the intake schema., extract_intake(), Defensive re-validation + cross-field consistency checks.      The SDK already v, Extract a validated intermediate clinical record from a transcript.      Retries, _validate(), Extraction service and API tests with the LLM mocked. No API key needed., Flag=true with no evidence must be rejected, not silently passed. (+5 more)
+Cohesion: 0.10
+Nodes (34): ClinicalSummaryAPIResponse, ClinicalSummaryDraft, ClinicalSummaryRequest, ClinicalSummaryResponse, ClinicalSummaryStatus, EvidenceRef, MissingOrUnresolvedQuestion, MissingQuestionSeverity (+26 more)
 
 ### Community 1 - "intake.py"
-Cohesion: 0.13
-Nodes (21): ExtractIntakeRequest, ExtractionMetadata, PatientIntakeExtraction, Intermediate clinical intake schemas (Sprint 1).  `PatientIntakeExtraction` is t, Server-generated audit metadata. Never produced by the LLM., Request body for POST /extract-intake., Patient-stated severity. `unknown` when the patient did not state it., Structured clinical facts explicitly stated by the patient.      Extraction-only (+13 more)
+Cohesion: 0.10
+Nodes (24): post_clinical_summary(), POST /api/v1/clinical-summary — Sprint 2 endpoint.  HTTP semantics per design: -, post_extract_intake(), HTTP edge for the intake extraction service., Extract validated intermediate clinical JSON from a raw transcript.      Extract, create_app(), Application entrypoint.  Run locally:     uvicorn app.main:app --reload, ExtractIntakeRequest (+16 more)
 
 ### Community 2 - "Version Roadmap"
 Cohesion: 0.11
 Nodes (18): Sprint 10 — Doctor-Controlled Follow-up Plans, Sprint 11 — Longitudinal Patient Monitoring, Sprint 12 — Population Health Dashboard, Sprint 1 — AI Patient Interview, Sprint 2 — Clinical Summary, Sprint 3 — Healthcare Data Pipeline, Sprint 4 — FHIR Clinical Structuring, Sprint 5 — AWS HealthLake Integration (+10 more)
 
 ### Community 3 - "client.py"
-Cohesion: 0.13
-Nodes (22): get_settings(), Application configuration loaded from environment / .env., Environment-driven settings.      OPENAI_API_KEY is required at call time (not i, Settings, ConfigurationError, IntakeError, LLMUnavailableError, Typed application errors.  The service layer raises these; the API layer maps th (+14 more)
+Cohesion: 0.07
+Nodes (41): get_settings(), Application configuration loaded from environment / .env., Environment-driven settings.      OPENAI_API_KEY is required at call time (not i, Settings, ConfigurationError, ExtractionValidationError, IntakeError, LLMUnavailableError (+33 more)
 
 ### Community 4 - "routes_intake.py"
-Cohesion: 0.27
-Nodes (8): post_extract_intake(), HTTP edge for the intake extraction service., Extract validated intermediate clinical JSON from a raw transcript.      Extract, create_app(), Application entrypoint.  Run locally:     uvicorn app.main:app --reload, IntakeExtractionResult, API response envelope: validated extraction + audit metadata., FastAPI
+Cohesion: 0.11
+Nodes (36): SummarySection, PatientIntakeExtraction, Structured clinical facts explicitly stated by the patient.      Extraction-only, build_care_goals_or_preferences(), build_chief_concern(), build_history_context(), build_medications_allergies(), build_missing_or_unresolved_section() (+28 more)
 
 ### Community 5 - "Pre-Visit Patient Intake — Sprint 1: Clinical Extraction Service"
-Cohesion: 0.20
-Nodes (9): Architecture (Sprint 1 slice), Git / GitHub, Pre-Visit Patient Intake — Sprint 1: Clinical Extraction Service, Regenerate the Graphify graph, Run it (backend + demo UI), Success criteria (from sprint doc), Tests, Try it (+1 more)
+Cohesion: 0.18
+Nodes (10): Architecture (Sprint 1 slice), Git / GitHub, Pre-Visit Patient Intake — Sprint 1: Clinical Extraction Service, Regenerate the Graphify graph, Run it (backend + demo UI), Sprint 2 — Clinical Summary Engine, Success criteria (from sprint doc), Tests (+2 more)
 
 ### Community 6 - "steps.py"
-Cohesion: 0.50
-Nodes (4): get_step(), Pipeline step registry — the seam for future graph orchestration.  Sprint 1 has, A named, pure pipeline step (a future graph node)., Step
+Cohesion: 0.11
+Nodes (34): post(), API tests for POST /api/v1/clinical-summary (design section 5)., test_blocked_summary_returns_422(), test_custom_intake_id_is_honored(), test_evidence_included_by_default_render_can_suppress_display_only(), test_json_format_skips_markdown_rendering(), test_malformed_json_returns_400(), test_response_validates_against_schema() (+26 more)
 
 ### Community 7 - "System Architecture"
 Cohesion: 0.40
@@ -106,25 +112,33 @@ Nodes (3): FHIR as the Technical Moat, Strategy, Target FHIR Resources
 Cohesion: 0.50
 Nodes (3): Important Boundary, Product Vision, What Makes This Valuable
 
+### Community 13 - "sprint_02_clinical_summary.md"
+Cohesion: 0.06
+Nodes (34): 1. New Pydantic Schemas, 2. Service-Layer Design, 3. API Endpoint Design, 4. Validation Invariants, 5. Test Cases, 6. File-by-File Implementation Plan, 7. Streamlit Demo Work for Claude Afterward, API tests (+26 more)
+
+### Community 34 - "test_summary_safety.py"
+Cohesion: 0.28
+Nodes (19): ClinicalSummaryRenderRequest, Display formatting options — kept separate from clinical content., SummaryAtom, Markdown rendering of a ``ClinicalSummaryDraft``.  Display only: output is limit, render_markdown(), validate_summary_output(), rich_valid(), codes() (+11 more)
+
 ## Knowledge Gaps
-- **42 isolated node(s):** `Architecture (Sprint 1 slice)`, `Run it (backend + demo UI)`, `Try it`, `Tests`, `Regenerate the Graphify graph` (+37 more)
+- **69 isolated node(s):** `Architecture (Sprint 1 slice)`, `Run it (backend + demo UI)`, `Try it`, `Tests`, `Regenerate the Graphify graph` (+64 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **16 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **15 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `PatientIntakeExtraction` connect `intake.py` to `test_extraction.py`, `client.py`?**
-  _High betweenness centrality (0.041) - this node is a cross-community bridge._
-- **Why does `extract_intake()` connect `test_extraction.py` to `intake.py`, `client.py`, `routes_intake.py`, `steps.py`?**
+- **Why does `PatientIntakeExtraction` connect `routes_intake.py` to `test_extraction.py`, `intake.py`, `test_summary_safety.py`, `client.py`, `steps.py`?**
+  _High betweenness centrality (0.156) - this node is a cross-community bridge._
+- **Why does `ClinicalSummaryEngine` connect `test_extraction.py` to `intake.py`, `test_summary_safety.py`, `client.py`, `routes_intake.py`, `steps.py`?**
   _High betweenness centrality (0.033) - this node is a cross-community bridge._
-- **Why does `LLMUnavailableError` connect `client.py` to `test_extraction.py`, `routes_intake.py`?**
-  _High betweenness centrality (0.015) - this node is a cross-community bridge._
-- **Are the 2 inferred relationships involving `ExtractionValidationError` (e.g. with `test_evidence_without_flag_fails_closed()` and `test_red_flag_inconsistency_fails_closed()`) actually correct?**
-  _`ExtractionValidationError` has 2 INFERRED edges - model-reasoned connections that need verification._
-- **What connects `HTTP edge for the intake extraction service.`, `Extract validated intermediate clinical JSON from a raw transcript.      Extract`, `Application configuration loaded from environment / .env.` to the rest of the system?**
-  _74 weakly-connected nodes found - possible documentation gaps or missing edges._
-- **Should `intake.py` be split into smaller, more focused modules?**
-  _Cohesion score 0.13043478260869565 - nodes in this community are weakly interconnected._
-- **Should `Version Roadmap` be split into smaller, more focused modules?**
-  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
+- **Why does `rich_valid()` connect `test_summary_safety.py` to `routes_intake.py`, `steps.py`?**
+  _High betweenness centrality (0.032) - this node is a cross-community bridge._
+- **Are the 4 inferred relationships involving `PatientIntakeExtraction` (e.g. with `ClinicalSummaryEngine` and `Clock`) actually correct?**
+  _`PatientIntakeExtraction` has 4 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 12 inferred relationships involving `ClinicalSummaryEngine` (e.g. with `Step` and `ClinicalSummaryDraft`) actually correct?**
+  _`ClinicalSummaryEngine` has 12 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 3 inferred relationships involving `SummarySection` (e.g. with `ClinicalSummaryEngine` and `Clock`) actually correct?**
+  _`SummarySection` has 3 INFERRED edges - model-reasoned connections that need verification._
+- **Are the 3 inferred relationships involving `SummaryAtom` (e.g. with `ClinicalSummaryEngine` and `Clock`) actually correct?**
+  _`SummaryAtom` has 3 INFERRED edges - model-reasoned connections that need verification._

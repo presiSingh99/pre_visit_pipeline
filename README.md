@@ -103,6 +103,16 @@ git push -u origin main
 
 `.gitignore` excludes `.env` (never commit keys) and caches; `graphify-out/` is tracked so teammates and assistants pull the graph.
 
+## Sprint 2 — Clinical Summary Engine
+
+Deterministic (no-LLM) transformation of a validated `PatientIntakeExtraction` into a doctor-review draft (`POST /api/v1/clinical-summary`). Design of record: `docs_handoff/sprints/sprint_02_clinical_summary.md`.
+
+- Fail-closed: missing chief complaint or inconsistent red flags → HTTP 422 with a `blocked` draft; parse failures → 400.
+- Every summary atom cites source field paths; output validation rejects diagnosis/treatment language, unknown source fields, and numbers not present in the extraction.
+- Contradicted symptoms (reported *and* denied) are never resolved — they become unresolved questions for the clinician.
+- Sections without a Sprint 1 source (demographics, history, social context, care goals) carry explicit `omitted_reason`s.
+- Rendering (`app/services/summary_rendering.py`) is display-only and adds no clinical facts; `rendered_markdown` in the API response is a display field, evidence stays in the JSON regardless of render options.
+
 ## Success criteria (from sprint doc)
 
 - Given a raw transcript, the system returns validated structured JSON ✅

@@ -6,6 +6,7 @@ Run locally:
 
 from fastapi import FastAPI
 
+from app.api.routes.clinical_summary import router as clinical_summary_router
 from app.api.routes_intake import router as intake_router
 from app.schemas.intake import SCHEMA_VERSION
 
@@ -21,6 +22,7 @@ def create_app() -> FastAPI:
         ),
     )
     app.include_router(intake_router)
+    app.include_router(clinical_summary_router)
 
     @app.get("/health", tags=["ops"])
     def health() -> dict[str, str]:

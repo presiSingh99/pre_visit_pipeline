@@ -13,6 +13,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Any, Callable
 
+from app.services.clinical_summary_engine import ClinicalSummaryEngine
 from app.services.extraction_service import extract_intake
 
 
@@ -33,6 +34,14 @@ STEPS: dict[str, Step] = {
             "clinical JSON (IntakeExtractionResult)."
         ),
         func=extract_intake,
+    ),
+    "build_clinical_summary": Step(
+        name="build_clinical_summary",
+        description=(
+            "Validated PatientIntakeExtraction -> deterministic doctor-review "
+            "draft (ClinicalSummaryResponse). No LLM, fail-closed."
+        ),
+        func=ClinicalSummaryEngine().build,
     ),
 }
 
