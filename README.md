@@ -20,8 +20,8 @@ transcript ──> POST /extract-intake ──> extraction_service.extract_intak
 
 ## Prerequisites
 
-- Docker Desktop or Docker Engine with the Docker Compose plugin.
-- A copy of `.env` created from `.env.example`.
+- Docker Desktop or Docker Engine with Docker Compose v2.24+ (the compose file uses the optional `env_file` syntax).
+- A copy of `.env` created from `.env.example` — needed only for real extraction calls. `docker compose up`, `/health`, and the test suite all work without it.
 - An OpenAI API key for real extraction calls. Tests mock the LLM and do not require a key.
 
 ## Environment variables
@@ -57,7 +57,7 @@ docker compose up --build
 - Health check: http://localhost:8000/health
 - Streamlit demo: http://localhost:8501
 
-The project directory is mounted into both containers, so code changes hot reload during development.
+The project directory is mounted into both containers, so code changes hot reload during development. Streamlit waits for the backend's `/health` check to pass before starting. Host ports are bound to `127.0.0.1` so dev containers are not reachable from your LAN; change the mapping in `docker-compose.yml` if you need to expose them.
 
 Stop and remove containers:
 
@@ -148,6 +148,11 @@ docker compose run --rm backend pytest -q
 - **Docker changes are not reflected:** confirm the service is running through Compose; the project directory is mounted at `/app` and Uvicorn uses `--reload`.
 - **Dependency changes are not available:** rebuild the image with `docker compose up --build` after editing `requirements.txt`.
 - **Streamlit cannot reach the API:** inside Compose it uses `http://backend:8000`; outside Compose set `INTAKE_API_URL` to the backend URL.
+- **`env file .env not found`:** your Docker Compose is older than v2.24; either upgrade or create `.env` from `.env.example`.
+
+## Deploying beyond dev (ECS/Fargate)
+
+`docker-compose.yml` is development-only. The image itself is already Fargate-friendly: it runs as a non-root user, takes all configuration from environment variables, logs to stdout, and its default `CMD` runs Uvicorn without `--reload`. When writing the task definition: inject `OPENAI_API_KEY` from AWS Secrets Manager or SSM Parameter Store (never bake it into the image or task JSON), map container port 8000, and reuse the compose health check command (`python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2)"`) as the container health check, since the slim image ships no curl.
 
 ## Regenerate the Graphify graph
 

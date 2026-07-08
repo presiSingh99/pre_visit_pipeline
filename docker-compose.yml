@@ -4,25 +4,38 @@ services:
       context: .
       target: runtime
     env_file:
-      - .env
+      # required: false → fresh clones can `docker compose up` before creating
+      # .env (tests and /health need no key). Needs Docker Compose >= 2.24.
+      - path: .env
+        required: false
     ports:
-      - "8000:8000"
+      # Bind to loopback: dev containers should not be reachable from the LAN.
+      - "127.0.0.1:8000:8000"
     volumes:
       - .:/app
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+    healthcheck:
+      # python stdlib only — the slim image has no curl/wget.
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=2)"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
 
   streamlit:
     build:
       context: .
       target: runtime
     env_file:
-      - .env
+      - path: .env
+        required: false
     environment:
       INTAKE_API_URL: http://backend:8000
     ports:
-      - "8501:8501"
+      - "127.0.0.1:8501:8501"
     volumes:
       - .:/app
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     command: streamlit run demo/streamlit_demo.py --server.address 0.0.0.0 --server.port 8501
