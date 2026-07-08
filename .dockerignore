@@ -1,0 +1,33 @@
+# VCS
+.git
+.gitignore
+
+# Secrets — never in the build context (compose injects .env at runtime)
+.env
+
+# Virtual environments
+.venv
+venv
+
+# Python caches (** so nested dirs like app/__pycache__ are also excluded)
+**/__pycache__
+**/*.py[cod]
+**/.pytest_cache
+
+# Docs / tooling output not needed inside the image
+docs_handoff/
+graphify-out/
+
+# Docker files themselves (avoid cache busts on compose edits)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Editor / assistant / OS noise
+.claude/
+.cursor/
+.vscode/
+.idea/
+.DS_Store
+**/*.swp
+**/*.swo
