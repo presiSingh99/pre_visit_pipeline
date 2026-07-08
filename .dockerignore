@@ -1,0 +1,16 @@
+.git
+.gitignore
+.env
+.venv
+venv
+__pycache__/
+*.py[cod]
+.pytest_cache/
+graphify-out/
+.claude/
+.cursor/
+.vscode/
+.idea/
+.DS_Store
+*.swp
+*.swo
